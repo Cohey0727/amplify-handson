@@ -7,12 +7,13 @@ import {
 } from "@aws-amplify/ui-react";
 import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
 import awsconfig from "./aws-exports";
+import { User } from "./types";
 
 Amplify.configure(awsconfig);
 
 const App = () => {
   const [authState, setAuthState] = useState<null | AuthState>(null);
-  const [user, setUser] = useState<null | any>(null);
+  const [user, setUser] = useState<null | User>(null);
 
   useEffect(() => {
     return onAuthUIStateChange((nextAuthState: AuthState, authData: any) => {
@@ -20,8 +21,6 @@ const App = () => {
       setUser(authData);
     });
   }, []);
-
-  console.log(JSON.stringify(user));
 
   return authState === AuthState.SignedIn && user ? (
     <div className="App">
