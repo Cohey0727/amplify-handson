@@ -1,6 +1,6 @@
 {
   "auth": {
-    "boyaki3334a60e": {
+    "boyakibba53115": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -10,8 +10,25 @@
   "hosting": {
     "amplifyhosting": {
       "service": "amplifyhosting",
-      "type": "cicd",
-      "lastPushTimeStamp": "2021-04-04T15:30:29.846Z"
+      "providerPlugin": "awscloudformation",
+      "type": "manual"
+    }
+  },
+  "api": {
+    "BoyakiGql": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authboyakibba53115"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
     }
   }
 }

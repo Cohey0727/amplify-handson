@@ -1,4 +1,4 @@
-export default interface User {
+export default interface AuthData {
   username: string;
   pool: Pool;
   Session: any;
